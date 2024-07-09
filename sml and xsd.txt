@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+<bookstore>
+<book>
+<title>1984</title>
+<author>George Orwell</author>
+<price>9.99</price>
+<year>1949</year>
+</book>
+<book>
+<title>The Great Gatsby</title>
+<author>F. Scott Fitzgerald</author>
+<price>12.99</price>
+<year>1925</year>
+</book>
+</bookstore>
+Bookstore.dtd
+<!DOCTYPE bookstore [
+<!ELEMENT bookstore (book*)>
+<!ELEMENT book (title, author, price, year)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ATTLIST book id ID #IMPLIED>
+]>
+bookstore.xsd
+<xs:schemaxmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="bookstore">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="book" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="title" type="xs:string"/>
+<xs:element name="author" type="xs:string"/>
+<xs:element name="price" type="xs:decimal"/>
+<xs:element name="year" type="xs:gYear"/>
+</xs:sequence>
+<xs:attribute name="id" type="xs:ID"/>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>

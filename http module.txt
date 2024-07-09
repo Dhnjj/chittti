@@ -1,0 +1,27 @@
+path.js
+var path = require('path');
+var filename = path.basename('/Users/Refsnes/demo_path.js'); console.log(filename);
+
+
+node path.js path.js
+
+file.js
+var fs = require('fs');
+var rs = fs.createReadStream('demofile.txt'); rs.on('open', function () {
+console.log('The file is open');
+});
+node file.js
+The file is open
+
+http.js
+var http = require('http');
+//create a server object:
+http.createServer(function (req, res) {
+res.write('Hello World!'); //write a response to the client res.end(); //end the response
+}).listen(8080); //the server object listens on port 8080
+
+node http.js
+
+Hello World!
+
+
